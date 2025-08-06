@@ -1,0 +1,26 @@
+---
+tenants:
+  #Tenant Name and VLANs
+  - name: SGC
+    mac_vrf_vni_base: 10000
+    vrfs:
+      #VRF definiation inside tenant
+      - name: sgc_gaming
+        vrf_vni: 10
+        svis:
+        #SVI Definition
+          - id: 601
+            name: sgc_gaming_servers
+            enabled: true
+            ip_address_virtual: 10.1.96.1/24
+      - name: sgc-dc
+        vrf_vni: 11
+        svis:
+          - id: 109
+            name: sgc_corp_servers
+            ip_address_virtual: 10.1.36.1/24
+    l2vlans:
+      - id: 3401
+        name: Testing
+      - id: 3402
+        name: Testing2

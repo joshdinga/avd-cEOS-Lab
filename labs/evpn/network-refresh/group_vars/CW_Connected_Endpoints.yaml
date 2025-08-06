@@ -1,0 +1,32 @@
+---
+port_profiles:
+  - profile: ESX_Server_Trunk
+    mode: trunk
+    vlans: '2-4000'
+
+servers:
+  - name: ESX_Host_1
+    rack: rack01
+    adapters:
+      - endpoint_ports:
+        - Eth1
+        - Eth2
+        - Eth3
+        - Eth4
+        switch_ports:
+          - Ethernet3
+          - Ethernet4
+          - Ethernet3
+          - Ethernet4
+        switches:
+          - CW_Leaf1
+          - CW_Leaf1
+          - CW_Leaf2
+          - CW_Leaf2
+        profile: ESX_Server_Trunk
+        spanning_tree_portfast: edge
+        port_channel:
+          description: ESX Host Number 1
+          mode: active
+        ethernet_segment:
+          short_esi: auto

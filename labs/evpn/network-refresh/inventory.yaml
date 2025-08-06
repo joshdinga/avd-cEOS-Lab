@@ -1,0 +1,22 @@
+all:
+  children:
+    Network_Refresh:
+      children:
+        CW_Fabric:
+          children:
+            CW_Spines:
+              hosts:
+                CW_Spine1:
+                CW_Spine2:
+            CW_Leafs:
+              hosts:
+                CW_Leaf1:
+                CW_Leaf2:
+
+        CW_Network_Services:
+          children:
+            CW_Leafs:
+
+        CW_Connected_Endpoints:
+          children:
+            CW_Leafs:
